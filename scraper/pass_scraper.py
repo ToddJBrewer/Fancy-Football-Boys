@@ -12,8 +12,9 @@ def main():
     soup = scraper.make_soup(url)
     clean_soup = scraper.strain(soup, "statistics scrollable")
 
+    output_file = "../data/rushing.csv"
     
-    with open("../data/passing.csv", 'w') as outfile:
+    with open(output_file, 'w') as outfile:
         pass
 
     cleaner = HTML_Cleaner()
@@ -30,7 +31,7 @@ def main():
         row = row[:-1]
         row = row.split(",")
 
-        with open("../data/passing.csv", 'a') as outfile:
+        with open(output_file, 'a') as outfile:
             writer = csv.writer(outfile)
             writer.writerow(row)
 
