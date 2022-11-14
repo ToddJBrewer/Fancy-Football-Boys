@@ -8,7 +8,7 @@ from html_cleaner import HTML_Cleaner
 class fdb_scraper():
     scraper = None
     cleaner = None
-
+    
     def __init__(self):
         self.scraper = Scraper()
         self.cleaner = HTML_Cleaner()
@@ -32,6 +32,7 @@ class fdb_scraper():
                 row = self.cleaner.replace_tag(row, "</td>", ',')
                 row = self.cleaner.replace_tag(row, "</th>", ',')
                 row = self.cleaner.remove(row, "<span class=\"visible-xs\">", "</span>")
+                row = self.cleaner.remove(row, "<span class=\"visible-xs-inline\">", "</span>")
                 row = self.cleaner.remove_tag(row, 'a')
                 row = self.cleaner.remove_tag(row, "span")
                 row = self.cleaner.remove_tag(row, "td")

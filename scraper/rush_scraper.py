@@ -8,7 +8,8 @@ from football_db_scraper import fdb_scraper
 
 def main():
     scraper = fdb_scraper()
-    scraper.scrape("https://www.footballdb.com/statistics/nfl/player-stats/rushing/2022/regular-season?sort=rushyds", "../data/rushing.csv")
+    scraper.scrape("https://www.footballdb.com/statistics/nfl/player-stats/rushing/2022/regular-season?sort=rushyds", "../data/rushing.tsv")
+    print("ding your rushing soup is done")
 
 if __name__ == "__main__":
     main()
