@@ -29,8 +29,8 @@ class fdb_scraper():
             writer = csv.writer(outfile)
             for row in rows:
                 row = row[1]
-                row = self.cleaner.replace_tag(row, "</td>", ',')
-                row = self.cleaner.replace_tag(row, "</th>", ',')
+                row = self.cleaner.replace_tag(row, "</td>", '\t')
+                row = self.cleaner.replace_tag(row, "</th>", '\t')
                 row = self.cleaner.remove(row, "<span class=\"visible-xs\">", "</span>")
                 row = self.cleaner.remove(row, "<span class=\"visible-xs-inline\">", "</span>")
                 row = self.cleaner.remove_tag(row, 'a')
