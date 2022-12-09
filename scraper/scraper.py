@@ -4,14 +4,14 @@ import re
 
 class Scraper():
     def __init__(self):
-        pass
+        # Set headers to have a user agent to prevent 403 Error
+        self.headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)" +
+                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"}
 
     # Method to get the URL and turn it into soup!
     def make_soup(self, url):
-        # Set headers to have a user agent to prevent 403 Error
-        headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"}
         # Get the html from the url and store in page
-        page = requests.get(url, headers=headers)
+        page = requests.get(url, headers=self.headers)
         # Create and return html soup using lxml parser
         return BeautifulSoup(page.text, "lxml")
 
